@@ -1,29 +1,48 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Titulo } from './util.js';
-import Titulo_padrão from './util.js';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Button, StyleSheet, Text, View} from 'react-native';
+import { rotulo_input_meta, rotulo_btn_cadastro_meta, rotulo_lista_metas} from './mensagens.js'
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>{Titulo}</Text>
-      <Text style={{margin: 20}}>{Titulo_padrão}</Text>
-      <Button title="Clique Aqui" />
-      <StatusBar style="auto" />
+    <View style={styles.mainContainer}>
+      <View style={{flexDirection:'row', justifyContent:'space-between', flex: 1}}>
+        <View style={{width:'65%'}}>
+          <TextInput style={styles.TextInput}
+          placeholder = {rotulo_input_meta}/>
+        </View>
+        <View style={{width:'30%'}}>
+          <Button title={rotulo_btn_cadastro_meta} />
+        </View>
+      </View>
+      <View style = {styles.metaContainer}>
+        <Text>(rotulo_lista_metas)</Text>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+
+  container:{
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text: {
-    margin: 20,
-  }
+
+  mainContainer: {
+    padding: 30,
+    flex: 1,
+    flexDirection: 'column',
+  },
+  inputText: {
+    borderColor: '#ccccc',
+    borderWidth: 1
+  },
+
+  metaContainer: {
+    flex: 1,
+  },
+  
 });
+
+  
